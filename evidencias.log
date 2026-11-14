@@ -1,0 +1,35 @@
+Script started on 2026-11-14 02:47:56-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="146" LINES="16"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ date
+[?2004lSat Nov 14 02:47:58 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ whohami
+[?2004lCommand 'whohami' not found, did you mean:
+  command 'whoami' from deb coreutils (9.4-3ubuntu6.2)
+Try: sudo apt install <deb name>
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ whoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ pwd
+[?2004l/mnt/c/SO/Deadlock
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ mae[Kke
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[01m[Kbanker.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kbanker.c:31:37:[m[K [01;35m[Kwarning: [m[Kpassing argument 2 of ‘[01m[Kvalidar_arg[m[K’ makes pointer from integer without a cast [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wint-conversion-Wint-conversion]8;;[m[K]
+   31 |         if(validar_arg(argv[i],[01;35m[Kvetor[i-1][m[K) == 0){
+      |                                [01;35m[K~~~~~^~~~~[m[K
+      |                                     [01;35m[K|[m[K
+      |                                     [01;35m[Kint[m[K
+[01m[Kbanker.c:7:36:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kint *[m[K’ but argument is of type ‘[01m[Kint[m[K’
+    7 | int validar_arg(char *entrada,[01;36m[Kint *resultado[m[K){
+      |                               [01;36m[K~~~~~^~~~~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make run
+[?2004lmake: *** No rule to make target 'run'.  Stop.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ bu[K[Kmake clean
+[?2004lrm -f banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ banker[K[K[K[K[K[K./banker 10 5 7 
+[?2004l1057[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean
+[?2004lrm -f banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker

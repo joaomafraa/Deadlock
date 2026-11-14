@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <limits.h>
-
+#include <string.h>
 
 int validar_arg(char *entrada,int *resultado){
     char*final;
@@ -22,11 +22,17 @@ int main(int argc,char **argv){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
         return 1;
     }
-    int resultado=0;
+    int *vetor=malloc(argc-1 *sizeof(int));
+    if(vetor == NULL){
+        fprintf(stderr,"erro na alocacao");
+        return 1;
+    }
     for(int i=1;i<argc;i++){
-        if(validar_arg(argv[i],resultado) == 0){
+        if(validar_arg(argv[i],&vetor[i-1]) == 0){
+            free(vetor);
             fprintf(stderr,"entrada invalida: %s\n", argv[1]);
             return 1;
         }
+        printf("%d\n", vetor[i-1]);
     }
 }
