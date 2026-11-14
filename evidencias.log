@@ -33,3 +33,11 @@ Try: sudo apt install <deb name>
 [?2004lrm -f banker
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
 [?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 
+[?2004l10
+5
+7
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [?2004l
+exit
+
+Script done on 2026-11-14 03:27:03-03:00 [COMMAND_EXIT_CODE="0"]

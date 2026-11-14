@@ -17,6 +17,20 @@ int validar_arg(char *entrada,int *resultado){
     *resultado=(int)valor;
     return 1;
 }
+int ler_clientes(){
+    FILE *arq=fopen("cosumer.txt", "r");
+    if(arq == NULL){
+        fprintf(stderr,"Erro ao abrir custumer.txt\n");
+        return 0;
+    }
+    char linha[256];
+    while(fgets(linha,sizeof(linha),arq)!=NULL){
+        
+    }
+
+    fclose(arq);
+    return 1;
+}
 int main(int argc,char **argv){
     if (argc < 2){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
