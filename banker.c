@@ -159,6 +159,11 @@ int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *aloca
             }
 
             if(pode_terminar){
+                for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+                int posicao = cliente * qnt_recursos + recurso;
+
+                trabalho[recurso] += alocacao[posicao];
+            }
                 terminou[cliente] = 1;
                 concluidos++;
                 avancou = 1;
@@ -199,7 +204,14 @@ int main(int argc,char **argv){
 
     int *alocacao = calloc(total, sizeof(int));
     int *necessidade = malloc(total * sizeof(int));
-
+    int resultado = estado_seguro(qnt_clientes, qnt_recursos, vetor, alocacao, necessidade);
+    if (resultado == 1) {
+        printf("Estado seguro\n");
+    } else if (resultado == 0) {
+        printf("Estado inseguro\n");
+    } else {
+        fprintf(stderr, "Nao foi possivel verificar o estado\n");
+    }
     if (alocacao == NULL || necessidade == NULL) {
         fprintf(stderr, "Erro ao alocar as matrizes\n");
         free(alocacao);

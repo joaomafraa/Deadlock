@@ -229,4 +229,95 @@ Quantidade de clientes: 5
 Cliente 0: 7 5 3 
 Cliente 1: 3 2 2 
 Cliente 2: 9 0 2 
-Cli
+Cliente 3: 2 2 2 
+Cliente 4: 4 3 3 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make[K[K[K[K./banker 10 5 7 [8Pmake run./banker 10 5 7 make[K clean[Kdatewhoami[3Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdate[1Ppwdwhoamiscript -a evidencias.log
+[?2004lScript started, output log file is 'evidencias.log'.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ ./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 Script started on 2026-11-15 18:57:41-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="148" LINES="16"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ ./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdate[1Ppwd
+[?2004l/mnt/c/SO/Deadlock
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlockmake[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdate[1Ppwd
+[?2004l/mnt/c/SO/Deadlock
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ pwd./banker 10 5 7 [01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ pwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./ 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdate[1Ppwdwhoami[3Ppwddate
+[?2004lSun Nov 15 18:57:57 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ date[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 makebanker 10 5 7 make[Kdate[1Ppwdwhoami[3Ppwddate
+[?2004lSun Nov 15 18:57:57 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ date[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdatemake./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 colun./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K clean[K./banker 10 5 7 make[K./banker 10 5 7 make[Kdatemake./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+ca 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Quantidade de clientes: 5
+Cliente 0: 7 5 3 
+Cliente 1: 3 2 2 
+Cliente 2: 9 0 2 
+Cliente 3: 2 2 2 
+Cliente 4: 4 3 3 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean[Kn
+[?2004lrm -f banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34moluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Quantidade de clientes: 5
+Cliente 0: 7 5 3 
+Cliente 1: 3 2 2 
+Cliente 2: 9 0 2 
+Cliente 3: 2 2 2 
+Cliente 4: 4 3 3 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean[Kn
+[?2004lrm -f banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[01m[Kbanker.c:[m[K In function ‘[01m[Kestado_seguro[m[K’:
+[01m[Kbanker.c:125:76:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kalocacao[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  125 | int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, [01;35m[Kint *alocacao[m[K, int *necessidade) {
+      |                                                                       /mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[01m[Kbanker.c:[m[K In function ‘[01m[Kestado_seguro[m[K’:
+[01m[Kbanker.c:125:76:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kalocacao[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  125 | int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, [01;35m[Kint *alocacao[m[K, int *necessidade) {
+      |                                                                       [01;35m[K~~~~~^~~~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 ma[01;35m[K~~~~~^~~~~~~~[m[K
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoke[K
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K./banker 10 5 7 [6Pmake clean./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K
+[?2004lgcc -Wall -Wextra -std=c11 baM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K./banker 10 5 7 [6Pmake clean./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 make[K./banker 10 5 7 make[K
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Estado seguro
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlnker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean./banker 10 5 7 date[K[1Ppwd./banker 10 5 7 make[K./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Estado seguro
+[?2004h]0;
