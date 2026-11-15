@@ -145,4 +145,25 @@ coluna 0 3 coluna 1 2 coluna 2 2
 coluna 0 9 coluna 1 0 coluna 2 2 
 coluna 0 2 coluna 1 2 coluna 2 2 
 coluna 0 4 coluna 1 3 coluna 2 3 
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 make[K./banker 10 5 7 make[K[Kmake./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make[K[K[K[K./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+Valor invalido em customer.txt: a
+coluna 0 2 coluna 1 2 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[

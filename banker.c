@@ -17,7 +17,7 @@ int validar_arg(char *entrada,int *resultado){
     *resultado=(int)valor;
     return 1;
 }
-int ler_clientes(){
+int ler_clientes(int qnt_recursos){
     FILE *arq=fopen("customer.txt", "r");
     if(arq == NULL){
         fprintf(stderr,"Erro ao abrir customer.txt\n");
@@ -25,18 +25,44 @@ int ler_clientes(){
     }
     char linha[256];
     while(fgets(linha,sizeof(linha),arq)!=NULL){
+        if(strchr(linha, '\n') == NULL && fgetc(arq) != EOF){
+            fprintf(stderr, "Linha muito longa em customer.txt\n");
+            fclose(arq);
+            return 0;
+        }
         linha[strcspn(linha, "\r\n")] = '\0';
         char* parte=strtok(linha,",");
+        size_t tamanho = strlen(linha);
+        if(tamanho == 0 || linha[0] == ',' || linha[tamanho - 1] == ','|| strstr(linha, ",,")!= NULL){
+            fprintf(stderr, "Formato invalido em customer.txt\n");
+            fclose(arq);
+            return 0;
+        }
         int coluna=0;
         while (parte!=NULL)
-        {
-            printf("coluna %d %s ",coluna,parte);
+        {   
+            int valor;
+            if(validar_arg(parte, &valor) == 0){
+                fprintf(stderr, "Valor invalido em customer.txt: %s\n", parte);
+                fclose(arq);
+                return 0;
+            }
+            printf("coluna %d %d ",coluna,valor);
             coluna++;
             parte=strtok(NULL,",");
         }
+        if(coluna!=qnt_recursos){
+            fprintf(stderr,"quantidade de recursos errados em customer.txt \n");
+            fclose(arq);
+            return 0;
+        }
         printf("\n");
     }
-
+    if(ferror(arq)){
+        fprintf(stderr, "Erro ao ler customer.txt\n");
+        fclose(arq);
+        return 0;
+    }
     fclose(arq);
     return 1;
 }
@@ -58,7 +84,7 @@ int main(int argc,char **argv){
         }
         printf("%d\n", vetor[i-1]);
     }
-    if(ler_clientes()==0){
+    if(ler_clientes(argc-1)==0){
         free(vetor);
         return 1;
     }
