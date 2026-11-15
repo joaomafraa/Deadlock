@@ -122,6 +122,54 @@ int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
     fclose(arq);
     return 1;
 }
+int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *alocacao, int *necessidade) {
+    int *trabalho = malloc((size_t)qnt_recursos * sizeof(int));
+    int *terminou = calloc((size_t)qnt_clientes, sizeof(int));
+
+    if(trabalho == NULL || terminou == NULL){
+        fprintf(stderr, "Erro ao verificar estado seguro\n");
+        free(trabalho);
+        free(terminou);
+        return -1;
+    }
+
+    for(int i=0;i<=qnt_recursos;i++){
+        trabalho[i] = disponivel[i];
+    }
+
+    int concluidos=0;
+    int avancou;
+
+    do{
+        avancou = 0;
+        for(int cliente=0;cliente<qnt_clientes;cliente++){
+            if (terminou[cliente]){
+                continue;
+            }
+
+            int pode_terminar=1;
+
+            for(int recurso=0;recurso<qnt_recursos;recurso++){
+                int posicao=cliente * qnt_recursos + recurso;
+
+                if(necessidade[posicao]>trabalho[recurso]){
+                    pode_terminar=0;
+                    break;
+                }
+            }
+
+            if(pode_terminar){
+                terminou[cliente] = 1;
+                concluidos++;
+                avancou = 1;
+            }
+        }
+    }while(avancou && concluidos<qnt_clientes);
+    int seguro = (concluidos == qnt_clientes);
+    free(trabalho);
+    free(terminou);
+    return seguro;
+}
 int main(int argc,char **argv){
     if (argc < 2){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
