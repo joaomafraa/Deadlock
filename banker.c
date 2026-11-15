@@ -17,7 +17,7 @@ int validar_arg(char *entrada,int *resultado){
     *resultado=(int)valor;
     return 1;
 }
-int ler_clientes(int qnt_recursos){
+int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
     FILE *arq=fopen("customer.txt", "r");
     if(arq == NULL){
         fprintf(stderr,"Erro ao abrir customer.txt\n");
@@ -106,10 +106,19 @@ int ler_clientes(int qnt_recursos){
             free(maximo);
             fclose(arq);
             return 0;
-        }
-
+        } 
         cliente++;
     }
+    if(ferror(arq) || cliente != qnt_Clientes){
+        fprintf(stderr, "Erro ao reler customer.txt\n");
+        free(maximo);
+        fclose(arq);
+        
+    }
+
+    *matriz = maximo;
+    *qnt_clientes_saida = qnt_Clientes;
+
     fclose(arq);
     return 1;
 }
@@ -131,10 +140,13 @@ int main(int argc,char **argv){
         }
         printf("%d\n", vetor[i-1]);
     }
-    if(ler_clientes(argc-1)==0){
-        free(vetor);
-        return 1;
+    int *maximo = NULL;
+    int qnt_clientes = 0;
+    if(ler_clientes(argc - 1, &maximo, &qnt_clientes) == 0){
+    free(vetor);
+    return 1;
     }
+    free(maximo);
     free(vetor);
     return 0;
 
