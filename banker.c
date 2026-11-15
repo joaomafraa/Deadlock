@@ -113,7 +113,7 @@ int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
         fprintf(stderr, "Erro ao reler customer.txt\n");
         free(maximo);
         fclose(arq);
-        
+        return 0;
     }
 
     *matriz = maximo;
@@ -193,7 +193,17 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
         necessidade[posicao] -= pedido[recurso];
     }
     int resultado = estado_seguro(qnt_clientes, qnt_recursos,disponivel, alocacao, necessidade);
-    return 1;
+    if (resultado != 1){
+    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+        int posicao = cliente * qnt_recursos + recurso;
+
+        disponivel[recurso] += pedido[recurso];
+        alocacao[posicao] -= pedido[recurso];
+        necessidade[posicao] += pedido[recurso];
+        }
+    }
+    return resultado;
+    
 }
 int main(int argc,char **argv){
     if (argc < 2){
@@ -224,15 +234,7 @@ int main(int argc,char **argv){
 
     int *alocacao = calloc(total, sizeof(int));
     int *necessidade = malloc(total * sizeof(int));
-    int resultado = estado_seguro(qnt_clientes, qnt_recursos, vetor, alocacao, necessidade);
-    if (resultado == 1) {
-        printf("Estado seguro\n");
-    } else if (resultado == 0) {
-        printf("Estado inseguro\n");
-    } else {
-        fprintf(stderr, "Nao foi possivel verificar o estado\n");
-    }
-
+   
     if (alocacao == NULL || necessidade == NULL) {
         fprintf(stderr, "Erro ao alocar as matrizes\n");
         free(alocacao);
@@ -241,7 +243,8 @@ int main(int argc,char **argv){
         free(vetor);
         return 1;
     }
-
+    
+printf("Resultado do pedido: %d\n", resultado_pedido);
     for (size_t i = 0; i < total; i++) {
         necessidade[i] = maximo[i];
     }
