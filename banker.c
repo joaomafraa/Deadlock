@@ -175,7 +175,7 @@ int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *aloca
     free(terminou);
     return seguro;
 }
-int solicitar_recursos(int cliente, int qnt_recursos,int *pedido, int *necessidade,int* disponivel){
+int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedido, int *necessidade,int* disponivel,int*alocacao){
     for(int recurso=0;recurso<qnt_recursos;recurso++){
         int posicao = cliente * qnt_recursos + recurso;
         if(pedido[recurso]>necessidade[posicao]){
@@ -185,6 +185,14 @@ int solicitar_recursos(int cliente, int qnt_recursos,int *pedido, int *necessida
             return 0;
         }
     }
+    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+        int posicao = cliente * qnt_recursos + recurso;
+
+        disponivel[recurso] -= pedido[recurso];
+        alocacao[posicao] += pedido[recurso];
+        necessidade[posicao] -= pedido[recurso];
+    }
+    int resultado = estado_seguro(qnt_clientes, qnt_recursos,disponivel, alocacao, necessidade);
     return 1;
 }
 int main(int argc,char **argv){
