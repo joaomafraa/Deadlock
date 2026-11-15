@@ -146,8 +146,26 @@ int main(int argc,char **argv){
     free(vetor);
     return 1;
     }
-    free(maximo);
-    free(vetor);
-    return 0;
+    int qnt_recursos = argc - 1;
+    size_t total = (size_t)qnt_clientes * qnt_recursos;
+
+    int *alocacao = calloc(total, sizeof(int));
+    int *necessidade = malloc(total * sizeof(int));
+
+    if (alocacao == NULL || necessidade == NULL) {
+        fprintf(stderr, "Erro ao alocar as matrizes\n");
+        free(alocacao);
+        free(necessidade);
+        free(maximo);
+        free(vetor);
+        return 1;
+    }
+
+    for (size_t i = 0; i < total; i++) {
+        necessidade[i] = maximo[i];
+    }
+        free(maximo);
+        free(vetor);
+        return 0;
 
 }
