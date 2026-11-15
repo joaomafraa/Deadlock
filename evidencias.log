@@ -41,3 +41,108 @@ Try: sudo apt install <deb name>
 exit
 
 Script done on 2026-11-14 03:27:03-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-11-15 01:53:33-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="148" LINES="16"]
+^[[A[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ script -a evidencias.log[8P./banker 10 5 7 make[K clean./banker 10 5 7 make[K clean[2Prun[K[1Ppwdwhoami
+[?2004ljoao
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ whoamiscript -a evidencias.log[8P./banker 10 5 7 make[K clean./banker 10 5 7 make[K clean[2Prun[K[1Ppwdwhoami[3Ppwd
+[?2004l/mnt/c/SO/Deadlock
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ pwdwhoamiscript -a evidencias.log[8P./banker 10 5 7 make[K clean./banker 10 5 7 make[K clean[2Prun[K[1Ppwdwhoamihami[3Pdate
+[?2004lSun Nov 15 01:53:47 -03 2026
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ makedate[1Ppwdwhoamiscript -a evidencias.log[8P./banker 10 5 7 make[K./banker 10 5 7 
+[?2004l10
+5
+7
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [7mmake[27m
+[7m./banker 10 5 7[27m[A]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[1P./banker 10 5 [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K./banker 10 5 7 make[K./banker 10 5 7 
+[?2004l10
+5
+7
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+Erro ao abrir custumer.txt
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lmake: 'banker' is up to date.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clena[K[Kan
+[?2004lrm -f banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make clean[K./banker 10 5 7 
+[?2004l10
+5
+7
+Erro ao abrir custumer.txt
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+Erro ao abrir customer.txt
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0coluna 1coluna 2coluna 0coluna 1coluna 2coluna 0coluna 1coluna 2coluna 0coluna 1coluna 2coluna 0coluna 1coluna 2[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ a[Kmake
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0
+coluna 1
+coluna 2
+coluna 0
+coluna 1
+coluna 2
+coluna 0
+coluna 1
+coluna 2
+coluna 0
+coluna 1
+coluna 2
+coluna 0
+coluna 1
+coluna 2
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ a[Kmake
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0coluna 1coluna 2
+coluna 0coluna 1coluna 2
+coluna 0coluna 1coluna 2
+coluna 0coluna 1coluna 2
+coluna 0coluna 1coluna 2
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 make[K./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7coluna 1 5coluna 2 3
+coluna 0 3coluna 1 2coluna 2 2
+coluna 0 9coluna 1 0coluna 2 2
+coluna 0 2coluna 1 2coluna 2 2
+coluna 0 4coluna 1 3coluna 2 3
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34

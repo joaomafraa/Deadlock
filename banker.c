@@ -18,14 +18,23 @@ int validar_arg(char *entrada,int *resultado){
     return 1;
 }
 int ler_clientes(){
-    FILE *arq=fopen("cosumer.txt", "r");
+    FILE *arq=fopen("customer.txt", "r");
     if(arq == NULL){
-        fprintf(stderr,"Erro ao abrir custumer.txt\n");
+        fprintf(stderr,"Erro ao abrir customer.txt\n");
         return 0;
     }
     char linha[256];
     while(fgets(linha,sizeof(linha),arq)!=NULL){
-        
+        linha[strcspn(linha, "\r\n")] = '\0';
+        char* parte=strtok(linha,",");
+        int coluna=0;
+        while (parte!=NULL)
+        {
+            printf("coluna %d %s ",coluna,parte);
+            coluna++;
+            parte=strtok(NULL,",");
+        }
+        printf("\n");
     }
 
     fclose(arq);
@@ -44,9 +53,16 @@ int main(int argc,char **argv){
     for(int i=1;i<argc;i++){
         if(validar_arg(argv[i],&vetor[i-1]) == 0){
             free(vetor);
-            fprintf(stderr,"entrada invalida: %s\n", argv[1]);
+            fprintf(stderr,"entrada invalida: %s\n", argv[i]);
             return 1;
         }
         printf("%d\n", vetor[i-1]);
     }
+    if(ler_clientes()==0){
+        free(vetor);
+        return 1;
+    }
+    free(vetor);
+    return 0;
+
 }
