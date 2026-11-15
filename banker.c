@@ -24,6 +24,7 @@ int ler_clientes(int qnt_recursos){
         return 0;
     }
     char linha[256];
+    int qnt_Clientes=0;
     while(fgets(linha,sizeof(linha),arq)!=NULL){
         if(strchr(linha, '\n') == NULL && fgetc(arq) != EOF){
             fprintf(stderr, "Linha muito longa em customer.txt\n");
@@ -31,13 +32,13 @@ int ler_clientes(int qnt_recursos){
             return 0;
         }
         linha[strcspn(linha, "\r\n")] = '\0';
-        char* parte=strtok(linha,",");
         size_t tamanho = strlen(linha);
         if(tamanho == 0 || linha[0] == ',' || linha[tamanho - 1] == ','|| strstr(linha, ",,")!= NULL){
             fprintf(stderr, "Formato invalido em customer.txt\n");
             fclose(arq);
             return 0;
         }
+        char* parte=strtok(linha,",");
         int coluna=0;
         while (parte!=NULL)
         {   
@@ -56,12 +57,58 @@ int ler_clientes(int qnt_recursos){
             fclose(arq);
             return 0;
         }
+        qnt_Clientes++;
         printf("\n");
     }
+    printf("Quantidade de clientes: %d\n", qnt_Clientes);
     if(ferror(arq)){
         fprintf(stderr, "Erro ao ler customer.txt\n");
         fclose(arq);
         return 0;
+    }
+    rewind(arq);//volta ao inicio do aqrquivo 
+    int *maximo = malloc((size_t)qnt_Clientes * qnt_recursos * sizeof(int));
+    if(maximo == NULL){
+        fprintf(stderr,"erro ao alocar maximo");
+        fclose(arq);
+        return 0;
+    }
+    int cliente = 0;
+
+    while(fgets(linha, sizeof(linha), arq) != NULL){
+        if(cliente >= qnt_Clientes){
+            fprintf(stderr, "Quantidade de clientes mudou durante a leitura\n");
+            free(maximo);
+            fclose(arq);
+            return 0;
+        }
+
+        linha[strcspn(linha, "\r\n")] = '\0';
+        char *parte = strtok(linha, ",");
+        int coluna = 0;
+        while(parte!=NULL && coluna<qnt_recursos){
+            int valor;
+            if(validar_arg(parte, &valor) == 0){
+                fprintf(stderr, "Erro ao reler customer.txt\n");
+                free(maximo);
+                fclose(arq);
+                return 0;
+            }
+
+            maximo[cliente * qnt_recursos + coluna]=valor;
+
+            coluna++;
+            parte = strtok(NULL, ",");
+        }
+
+        if (parte != NULL || coluna != qnt_recursos) {
+            fprintf(stderr, "Quantidade de recursos incorreta\n");
+            free(maximo);
+            fclose(arq);
+            return 0;
+        }
+
+        cliente++;
     }
     fclose(arq);
     return 1;
