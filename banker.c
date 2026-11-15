@@ -175,6 +175,18 @@ int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *aloca
     free(terminou);
     return seguro;
 }
+int solicitar_recursos(int cliente, int qnt_recursos,int *pedido, int *necessidade,int* disponivel){
+    for(int recurso=0;recurso<qnt_recursos;recurso++){
+        int posicao = cliente * qnt_recursos + recurso;
+        if(pedido[recurso]>necessidade[posicao]){
+            return 0;
+        } 
+        if(pedido[recurso]>disponivel[recurso]){
+            return 0;
+        }
+    }
+    return 1;
+}
 int main(int argc,char **argv){
     if (argc < 2){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
@@ -196,8 +208,8 @@ int main(int argc,char **argv){
     int *maximo = NULL;
     int qnt_clientes = 0;
     if(ler_clientes(argc - 1, &maximo, &qnt_clientes) == 0){
-    free(vetor);
-    return 1;
+        free(vetor);
+        return 1;
     }
     int qnt_recursos = argc - 1;
     size_t total = (size_t)qnt_clientes * qnt_recursos;
@@ -212,6 +224,7 @@ int main(int argc,char **argv){
     } else {
         fprintf(stderr, "Nao foi possivel verificar o estado\n");
     }
+
     if (alocacao == NULL || necessidade == NULL) {
         fprintf(stderr, "Erro ao alocar as matrizes\n");
         free(alocacao);
