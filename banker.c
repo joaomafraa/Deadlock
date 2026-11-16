@@ -205,6 +205,23 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
     return resultado;
     
 }
+int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponivel,int *alocacao, int *necessidade){
+    for(int recurso=0;recurso<qnt_recursos;recurso++) {
+        int posicao = cliente * qnt_recursos * recurso;
+        if(liberacao[recurso]>alocacao[posicao]){
+            return 0;
+        }
+    }
+
+    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+        int posicao = cliente * qnt_recursos + recurso;
+        alocacao[posicao] -= liberacao[recurso];
+        disponivel[recurso] += liberacao[recurso];
+        necessidade[posicao] += liberacao[recurso];
+    }
+
+    return 1;
+}
 int main(int argc,char **argv){
     if (argc < 2){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
@@ -243,7 +260,7 @@ int main(int argc,char **argv){
         free(vetor);
         return 1;
     }
-    
+
 printf("Resultado do pedido: %d\n", resultado_pedido);
     for (size_t i = 0; i < total; i++) {
         necessidade[i] = maximo[i];
