@@ -433,4 +433,66 @@ Quantidade de clientes: 5
 Resultado do pedido: 0
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
 [?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[r.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Resultado do pedido: 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ m00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 
+coluna 0 3 coluna 1 2 coluna 2 2 
+coluna 0 9 coluna 1 0 coluna 2 2 
+coluna 0 2 coluna 1 2 coluna 2 2 
+coluna 0 4 coluna 1 3 coluna 2 3 
+Quantidade de clientes: 5
+Resultado do pedido: 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make ru[K[K[K[K[K[K[Kmake./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 coluna 0 3 coluna 1 2 coluna 2 2 coluna 0 9 coluna 1 0 coluna 2 2 coluna 0 2 coluna 1 2 coluna 2 2 coluna 0 4 coluna 1 3 coluna 2 3 Quantidade de clientes: 5
+Pedido: 1
+Liberacao: 0
+Recurso 0: disponivel=10, alocacao=0, necessidade=7
+Recurso 1: disponivel=3, alocacao=2, necessidade=3
+Recurso 2: disponivel=6, ake
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make ru[K[K[K[K[K[K[Kmake./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 coluna 0 3 coluna 1 2 coluna 2 2 coluna 0 9 coluna 1 0 coluna 2 2 coluna 0 2 coluna 1 2 coluna 2 2 coluna 0 4 coluna 1 3 coluna 2 3 Quantidade de clientes: 5
+Pedido: 1
+Liberacao: 0
+Recurso 0: disponivel=10, alocacao=0, necessidade=7
+Recurso 1: disponivel=3, alocacao=2, necessidade=3
+Recurso 2: disponivel=6, alocacao=1, necessidade=2
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@Laptopalocacao=1, necessidade=2
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/DeadlockJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joaoc/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00mc/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjo:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ ./banker 10 5 7 make[K
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;ao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ ./banker 10 5 7 make[K
+[?2004lgcc -Wall -Wextra -std=c11 banker.c -o banker
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/Deadlock[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?20032mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/Deadlock[00m$ make./banker 10 5 7 
+[?2004l10
+5
+7
+coluna 0 7 coluna 1 5 coluna 2 3 coluna 0 3 coluna 1 2 coluna 2 2 coluna 0 9 coluna 1 0 coluna 2 2 coluna 0 2 coluna 1 2 coluna 2 2 coluna 0 4 coluna 1 3 coluna 2 3 Quantidade de clientes: 5
+Pedido: 1
+Liberacao: 1
+Recurso 0: disponivel=10, alocacao=0, necessidade=7
+Recurso 1: disponivel=4, alocacao=1, necessidade=4
+Recurso 2: disponivel=7, alocacao=0, necessidade=3
+[?2004h]0;joao@LaptopJoaoM: /mnt/

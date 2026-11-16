@@ -58,7 +58,6 @@ int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
             return 0;
         }
         qnt_Clientes++;
-        printf("\n");
     }
     printf("Quantidade de clientes: %d\n", qnt_Clientes);
     if(ferror(arq)){
@@ -207,7 +206,7 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
 }
 int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponivel,int *alocacao, int *necessidade){
     for(int recurso=0;recurso<qnt_recursos;recurso++) {
-        int posicao = cliente * qnt_recursos * recurso;
+        int posicao = cliente * qnt_recursos + recurso;
         if(liberacao[recurso]>alocacao[posicao]){
             return 0;
         }
@@ -260,13 +259,42 @@ int main(int argc,char **argv){
         free(vetor);
         return 1;
     }
-
-printf("Resultado do pedido: %d\n", resultado_pedido);
     for (size_t i = 0; i < total; i++) {
         necessidade[i] = maximo[i];
     }
-        free(maximo);
-        free(vetor);
-        return 0;
 
+    if (qnt_recursos == 3 && qnt_clientes > 0) {
+        int pedido_teste[] = {0, 2, 1};
+        int liberacao_teste[] = {0, 1, 1};
+
+        int resultado_pedido = solicitar_recursos(
+            0, qnt_clientes, qnt_recursos,
+            pedido_teste, necessidade, vetor, alocacao
+        );
+
+        printf("Pedido: %d\n", resultado_pedido);
+
+        if (resultado_pedido == 1) {
+            int resultado_liberacao = liberar_recursos(
+                0, qnt_recursos, liberacao_teste,
+                vetor, alocacao, necessidade
+            );
+
+            printf("Liberacao: %d\n", resultado_liberacao);
+
+            for (int i = 0; i < qnt_recursos; i++) {
+                printf(
+                    "Recurso %d: disponivel=%d, alocacao=%d, necessidade=%d\n",
+                    i, vetor[i], alocacao[i], necessidade[i]
+                );
+            }
+        }
+    }
+
+    free(necessidade);
+    free(alocacao);
+    free(maximo);
+    free(vetor);
+
+    return 0;
 }
