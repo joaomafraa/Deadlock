@@ -204,24 +204,7 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
     return resultado;
     
 }
-int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponivel,int *alocacao, int *necessidade){
-    for(int recurso=0;recurso<qnt_recursos;recurso++) {
-        int posicao = cliente * qnt_recursos + recurso;
-        if(liberacao[recurso]>alocacao[posicao]){
-            return 0;
-        }
-    }
-
-    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
-        int posicao = cliente * qnt_recursos + recurso;
-        alocacao[posicao] -= liberacao[recurso];
-        disponivel[recurso] += liberacao[recurso];
-        necessidade[posicao] += liberacao[recurso];
-    }
-
-    return 1;
-}
-int ler_comandos() {
+int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao,int *necessidade,FILE *resultado){
     FILE *arq = fopen("commands.txt", "r");
     if(arq == NULL){
         fprintf(stderr, "Erro ao abrir commands.txt\n");
@@ -229,29 +212,98 @@ int ler_comandos() {
     }
     char linha[256];
     while(fgets(linha, sizeof(linha), arq) != NULL){
+        if(strchr(linha, '\n') == NULL && fgetc(arq) != EOF){
+            fprintf(stderr, "Linha muito longa em commands.txt\n");
+            fclose(arq);
+            return 0;
+        }
         char *comando = strtok(linha, " \t\r\n");
-        if (comando == NULL) {
+        if(comando == NULL){
             fprintf(stderr, "Linha vazia em commands.txt\n");
             fclose(arq);
             return 0;
         }
-        if(strcmp(comando, "RQ") == 0){
-            printf("Comando de solicitacao\n");
-        } else if(strcmp(comando, "RL") == 0){
-            printf("Comando de liberacao\n");
+        int cliente;
+        if(strcmp(comando, "RQ") == 0 || strcmp(comando, "RL") == 0){
+            char *parte_cliente = strtok(NULL, " \t\r\n");
+            if(parte_cliente == NULL || validar_arg(parte_cliente, &cliente) == 0 || cliente >= qnt_clientes){
+                fprintf(stderr, "Cliente invalido em commands.txt\n");
+                fclose(arq);
+                return 0;
+            }
+            int *valores = malloc((size_t)qnt_recursos * sizeof(int));
+            if(valores == NULL){
+                fprintf(stderr, "Erro ao alocar valores do comando\n");
+                fclose(arq);
+                return 0;
+            }
+            for(int i=0;i<qnt_recursos;i++){
+                char *parte = strtok(NULL, " \t\r\n");
+                if(parte == NULL || validar_arg(parte, &valores[i]) == 0){
+                    fprintf(stderr, "Valor de recurso invalido em commands.txt\n");
+                    free(valores);
+                    fclose(arq);
+                    return 0;
+                }
+            }
+            if(strtok(NULL, " \t\r\n") != NULL){
+                fprintf(stderr, "Valores a mais em commands.txt\n");
+                free(valores);
+                fclose(arq);
+                return 0;
+            }
+
+            int situacao;
+
+            if(strcmp(comando, "RQ") == 0){
+                situacao = solicitar_recursos(cliente, qnt_clientes, qnt_recursos,valores, necessidade, disponivel, alocacao);
+                if(situacao == -1){
+                    free(valores);
+                    fclose(arq);
+                    return 0;
+                }
+                if(situacao == 1){
+                    fprintf(resultado, "Allocate to customer %d the resources", cliente);
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", valores[i]);
+                    }
+                    fprintf(resultado, "\n");
+                } else{
+                    fprintf(resultado, "Request denied for customer %d\n", cliente);
+                }
+            } else{
+                situacao = liberar_recursos(cliente, qnt_recursos, valores,disponivel, alocacao, necessidade);
+                if(situacao == 1){
+                    fprintf(resultado, "Release from customer %d the resources", cliente);
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", valores[i]);
+                    }
+                    fprintf(resultado, "\n");
+                } else{
+                    fprintf(resultado, "Release denied for customer %d\n", cliente);
+                }
+            }
+            free(valores);
         } else if(strcmp(comando, "*") == 0){
-            printf("Comando de consulta\n");
+            if(strtok(NULL, " \t\r\n") != NULL){
+                fprintf(stderr, "Valores a mais apos * em commands.txt\n");
+                fclose(arq);
+                return 0;
+            }
+
         } else{
             fprintf(stderr, "Comando invalido: %s\n", comando);
             fclose(arq);
             return 0;
         }
     }
+
     if(ferror(arq)){
         fprintf(stderr, "Erro ao ler commands.txt\n");
         fclose(arq);
         return 0;
     }
+
     fclose(arq);
     return 1;
 }
@@ -284,13 +336,6 @@ int main(int argc,char **argv){
 
     int *alocacao = calloc(total, sizeof(int));
     int *necessidade = malloc(total * sizeof(int));
-   if(ler_comandos()==0){
-        free(necessidade);
-        free(alocacao);
-        free(maximo);
-        free(vetor);
-        return 1;
-    }
     if (alocacao == NULL || necessidade == NULL) {
         fprintf(stderr, "Erro ao alocar as matrizes\n");
         free(alocacao);
@@ -299,42 +344,30 @@ int main(int argc,char **argv){
         free(vetor);
         return 1;
     }
-    for (size_t i = 0; i < total; i++) {
+    for(size_t i=0;i<total;i++){
         necessidade[i] = maximo[i];
     }
-
-    if (qnt_recursos == 3 && qnt_clientes > 0) {
-        int pedido_teste[] = {0, 2, 1};
-        int liberacao_teste[] = {0, 1, 1};
-
-        int resultado_pedido = solicitar_recursos(
-            0, qnt_clientes, qnt_recursos,
-            pedido_teste, necessidade, vetor, alocacao
-        );
-
-        printf("Pedido: %d\n", resultado_pedido);
-
-        if (resultado_pedido == 1) {
-            int resultado_liberacao = liberar_recursos(
-                0, qnt_recursos, liberacao_teste,
-                vetor, alocacao, necessidade
-            );
-
-            printf("Liberacao: %d\n", resultado_liberacao);
-
-            for (int i = 0; i < qnt_recursos; i++) {
-                printf(
-                    "Recurso %d: disponivel=%d, alocacao=%d, necessidade=%d\n",
-                    i, vetor[i], alocacao[i], necessidade[i]
-                );
-            }
-        }
+    FILE *resultado = fopen("result.txt", "w");
+    if(resultado == NULL){
+        fprintf(stderr, "Erro ao criar result.txt\n");
+        free(necessidade);
+        free(alocacao);
+        free(maximo);
+        free(vetor);
+        return 1;
     }
-
+    if(ler_comandos(qnt_clientes, qnt_recursos,vetor, alocacao, necessidade, resultado) == 0){
+        fclose(resultado);
+        free(necessidade);
+        free(alocacao);
+        free(maximo);
+        free(vetor);
+        return 1;
+    }
+    fclose(resultado);
     free(necessidade);
     free(alocacao);
     free(maximo);
     free(vetor);
-
     return 0;
 }
