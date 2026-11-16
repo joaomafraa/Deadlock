@@ -221,6 +221,40 @@ int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponiv
 
     return 1;
 }
+int ler_comandos() {
+    FILE *arq = fopen("commands.txt", "r");
+    if(arq == NULL){
+        fprintf(stderr, "Erro ao abrir commands.txt\n");
+        return 0;
+    }
+    char linha[256];
+    while(fgets(linha, sizeof(linha), arq) != NULL){
+        char *comando = strtok(linha, " \t\r\n");
+        if (comando == NULL) {
+            fprintf(stderr, "Linha vazia em commands.txt\n");
+            fclose(arq);
+            return 0;
+        }
+        if(strcmp(comando, "RQ") == 0){
+            printf("Comando de solicitacao\n");
+        } else if(strcmp(comando, "RL") == 0){
+            printf("Comando de liberacao\n");
+        } else if(strcmp(comando, "*") == 0){
+            printf("Comando de consulta\n");
+        } else{
+            fprintf(stderr, "Comando invalido: %s\n", comando);
+            fclose(arq);
+            return 0;
+        }
+    }
+    if(ferror(arq)){
+        fprintf(stderr, "Erro ao ler commands.txt\n");
+        fclose(arq);
+        return 0;
+    }
+    fclose(arq);
+    return 1;
+}
 int main(int argc,char **argv){
     if (argc < 2){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
@@ -250,7 +284,13 @@ int main(int argc,char **argv){
 
     int *alocacao = calloc(total, sizeof(int));
     int *necessidade = malloc(total * sizeof(int));
-   
+   if(ler_comandos()==0){
+        free(necessidade);
+        free(alocacao);
+        free(maximo);
+        free(vetor);
+        return 1;
+    }
     if (alocacao == NULL || necessidade == NULL) {
         fprintf(stderr, "Erro ao alocar as matrizes\n");
         free(alocacao);
