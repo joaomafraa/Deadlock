@@ -48,7 +48,6 @@ int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
                 fclose(arq);
                 return 0;
             }
-            printf("coluna %d %d ",coluna,valor);
             coluna++;
             parte=strtok(NULL,",");
         }
@@ -59,7 +58,6 @@ int ler_clientes(int qnt_recursos, int **matriz, int *qnt_clientes_saida){
         }
         qnt_Clientes++;
     }
-    printf("Quantidade de clientes: %d\n", qnt_Clientes);
     if(ferror(arq)){
         fprintf(stderr, "Erro ao ler customer.txt\n");
         fclose(arq);
@@ -132,7 +130,7 @@ int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *aloca
         return -1;
     }
 
-    for(int i=0;i<=qnt_recursos;i++){
+    for(int i=0;i<qnt_recursos;i++){
         trabalho[i] = disponivel[i];
     }
 
@@ -176,12 +174,15 @@ int estado_seguro(int qnt_clientes, int qnt_recursos,int *disponivel, int *aloca
 }
 int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedido, int *necessidade,int* disponivel,int*alocacao){
     for(int recurso=0;recurso<qnt_recursos;recurso++){
-        int posicao = cliente * qnt_recursos + recurso;
-        if(pedido[recurso]>necessidade[posicao]){
-            return 0;
-        } 
+    int posicao = cliente * qnt_recursos + recurso;
+        if(pedido[recurso] > necessidade[posicao]){
+            return 2;
+        }
+    }
+
+    for(int recurso=0;recurso<qnt_recursos;recurso++){
         if(pedido[recurso]>disponivel[recurso]){
-            return 0;
+            return 3;
         }
     }
     for (int recurso = 0; recurso < qnt_recursos; recurso++) {
@@ -193,14 +194,18 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
     }
     int resultado = estado_seguro(qnt_clientes, qnt_recursos,disponivel, alocacao, necessidade);
     if (resultado != 1){
-    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
-        int posicao = cliente * qnt_recursos + recurso;
+        for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+            int posicao = cliente * qnt_recursos + recurso;
 
-        disponivel[recurso] += pedido[recurso];
-        alocacao[posicao] -= pedido[recurso];
-        necessidade[posicao] += pedido[recurso];
+            disponivel[recurso] += pedido[recurso];
+            alocacao[posicao] -= pedido[recurso];
+            necessidade[posicao] += pedido[recurso];
         }
     }
+    if(resultado == 0){
+        return 4;
+    }
+
     return resultado;
     
 }
@@ -221,7 +226,32 @@ int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponiv
 
     return 1;
 }
-int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao,int *necessidade,FILE *resultado){
+void mostrar_estado(FILE *resultado,int qnt_clientes,int qnt_recursos,int *maximo,int *alocacao,int *necessidade,int *disponivel){
+    fprintf(resultado, "MAXIMUM | ALLOCATION | NEED\n");
+    for(int cliente=0;cliente<qnt_clientes;cliente++){
+        for(int recurso=0;recurso<qnt_recursos;recurso++){
+            int posicao = cliente * qnt_recursos + recurso;
+            fprintf(resultado, "%d ", maximo[posicao]);
+        }
+        fprintf(resultado, "| ");
+        for(int recurso=0;recurso<qnt_recursos;recurso++){
+            int posicao = cliente * qnt_recursos + recurso;
+            fprintf(resultado, "%d ", alocacao[posicao]);
+        }
+        fprintf(resultado, "| ");
+        for(int recurso=0;recurso<qnt_recursos;recurso++){
+            int posicao = cliente * qnt_recursos + recurso;
+            fprintf(resultado, "%d ", necessidade[posicao]);
+        }
+        fprintf(resultado, "\n");
+    }
+    fprintf(resultado, "AVAILABLE");
+    for(int recurso=0;recurso<qnt_recursos;recurso++){
+        fprintf(resultado, " %d", disponivel[recurso]);
+    }
+    fprintf(resultado, "\n");
+}
+int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao,int *necessidade,int *maximo,FILE *resultado){
     FILE *arq = fopen("commands.txt", "r");
     if(arq == NULL){
         fprintf(stderr, "Erro ao abrir commands.txt\n");
@@ -285,8 +315,36 @@ int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao
                         fprintf(resultado, " %d", valores[i]);
                     }
                     fprintf(resultado, "\n");
-                } else{
-                    fprintf(resultado, "Request denied for customer %d\n", cliente);
+                }else if(situacao == 2){
+                    fprintf(resultado, "The customer %d request", cliente);
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", valores[i]);
+                    }
+                    fprintf(resultado, " was denied because exceed its maximum allocation\n");
+
+                }else if(situacao == 3){
+                    fprintf(resultado, "The resources");
+
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", disponivel[i]);
+                    }
+
+                    fprintf(resultado, " are not enough to customer %d request", cliente);
+
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", valores[i]);
+                    }
+
+                    fprintf(resultado, "\n");
+
+                } else if(situacao == 4){
+                    fprintf(resultado, "The customer %d request", cliente);
+
+                    for(int i=0;i<qnt_recursos;i++){
+                        fprintf(resultado, " %d", valores[i]);
+                    }
+
+                    fprintf(resultado, " was denied because result in an unsafe state\n");
                 }
             } else{
                 situacao = liberar_recursos(cliente, qnt_recursos, valores,disponivel, alocacao, necessidade);
@@ -307,6 +365,7 @@ int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao
                 fclose(arq);
                 return 0;
             }
+            mostrar_estado(resultado, qnt_clientes, qnt_recursos,maximo, alocacao, necessidade, disponivel);
 
         } else{
             fprintf(stderr, "Comando invalido: %s\n", comando);
@@ -329,7 +388,7 @@ int main(int argc,char **argv){
         fprintf(stderr,"INFORME PELO MENOS UM TIPO DE RECURSO\n");
         return 1;
     }
-    int *vetor=malloc(argc-1 *sizeof(int));
+    int *vetor=malloc((argc-1) *sizeof(int));
     if(vetor == NULL){
         fprintf(stderr,"erro na alocacao");
         return 1;
@@ -340,7 +399,6 @@ int main(int argc,char **argv){
             fprintf(stderr,"entrada invalida: %s\n", argv[i]);
             return 1;
         }
-        printf("%d\n", vetor[i-1]);
     }
     int *maximo = NULL;
     int qnt_clientes = 0;
@@ -364,6 +422,7 @@ int main(int argc,char **argv){
     for(size_t i=0;i<total;i++){
         necessidade[i] = maximo[i];
     }
+    
     FILE *resultado = fopen("result.txt", "w");
     if(resultado == NULL){
         fprintf(stderr, "Erro ao criar result.txt\n");
@@ -373,7 +432,7 @@ int main(int argc,char **argv){
         free(vetor);
         return 1;
     }
-    if(ler_comandos(qnt_clientes, qnt_recursos,vetor, alocacao, necessidade, resultado) == 0){
+    if(ler_comandos(qnt_clientes, qnt_recursos, vetor, alocacao, necessidade, maximo, resultado) == 0){
         fclose(resultado);
         free(necessidade);
         free(alocacao);
