@@ -204,6 +204,23 @@ int solicitar_recursos(int cliente, int qnt_clientes,int qnt_recursos,int *pedid
     return resultado;
     
 }
+int liberar_recursos(int cliente, int qnt_recursos,int *liberacao, int *disponivel,int *alocacao, int *necessidade){
+    for(int recurso=0;recurso<qnt_recursos;recurso++) {
+        int posicao = cliente * qnt_recursos + recurso;
+        if(liberacao[recurso]>alocacao[posicao]){
+            return 0;
+        }
+    }
+
+    for (int recurso = 0; recurso < qnt_recursos; recurso++) {
+        int posicao = cliente * qnt_recursos + recurso;
+        alocacao[posicao] -= liberacao[recurso];
+        disponivel[recurso] += liberacao[recurso];
+        necessidade[posicao] += liberacao[recurso];
+    }
+
+    return 1;
+}
 int ler_comandos(int qnt_clientes,int qnt_recursos,int *disponivel,int *alocacao,int *necessidade,FILE *resultado){
     FILE *arq = fopen("commands.txt", "r");
     if(arq == NULL){
